@@ -55,18 +55,18 @@ public:
     }
 
 
-    int Improved_Search(int i){
-        int cntr=0;
-       for (Node *cur = head , *prev = nullptr ;cur ; prev =cur,cur = cur->next,cntr++){
-        if (cur->data==i){
-          if (!prev)
-            return 0;
-          swap(cur -> data,prev->data );
-          return cntr -1;
-            }
-       }
+int Improved_Search(int i){
+    int cntr=0;
+   for (Node *cur = head , *prev = nullptr ;cur ; prev =cur,cur = cur->next,cntr++){
+    if (cur->data==i){
+      if (!prev)
+        return 0;
+      swap(cur -> data,prev->data );
+      return cntr -1;
+        }
+   }
 return -1;
-    }
+}
 };
 
 int main() {
