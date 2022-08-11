@@ -62,12 +62,15 @@ public:
         return -1;
        else if (cntr==1&&cur ->data == i)
        {   head->next =cur->next;
-           Node* temp = head;
-           head=cur;
-           head->next =temp;
+           cur ->next =head;
+           head = cur ;
+       }
+       else {
 
 
-    }
+
+
+       }
 };
 
 int main() {
