@@ -57,20 +57,16 @@ public:
 
     int Improved_Search(int i){
         int cntr=0;
-    for (Node* cur = head ;cur ;cur = cur->next,cntr++)
-       if (cntr==0 && cur ->data == i)
-        return -1;
-       else if (cntr==1&&cur ->data == i)
-       {   head->next =cur->next;
-           cur ->next =head;
-           head = cur ;
+       for (Node *cur = head , *prev = nullptr ;cur ; prev =cur,cur = cur->next,cntr++){
+        if (cur->data==i){
+          if (!prev)
+            return 0;
+          swap(cur -> data,prev->data );
+          return cntr -1;
+            }
        }
-       else {
-
-
-
-
-       }
+return -1;
+    }
 };
 
 int main() {
@@ -81,11 +77,16 @@ int main() {
 	list.insert_end(10);
 	list.insert_end(8);
 	list.insert_end(15);
+    list.insert_end(150);
 	list.print();
+	/********************************/
     int i =list.get_nth(4)->data;
     cout<<i<<" ";
     int i1 =list.Search(15);
     cout<<i1;
+   int i2= list.Improved_Search(150);
+    cout<<"\n"<<i2<<"\n";
+   	list.print();             //6 10 15 8  150
 	return 0;
 }
 
